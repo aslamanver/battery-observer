@@ -50,7 +50,7 @@ public class BatteryObserverService extends Service {
 
             level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
 
-            showNotification("In last 5 minutes | Times: " + times);
+            showNotification("In last 2 minutes | Times: " + times);
 
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String time = dateFormat.format(Calendar.getInstance().getTime());
@@ -73,7 +73,7 @@ public class BatteryObserverService extends Service {
             public void run() {
                 times++;
                 registerReceiver(receiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-                handler.postDelayed(this, 1000 * 60 * 1);
+                handler.postDelayed(this, 1000 * 60 * 2);
             }
         });
 
@@ -109,8 +109,8 @@ public class BatteryObserverService extends Service {
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(false)
                 .setPriority(Notification.PRIORITY_HIGH)
-                .setVibrate(new long[0])
-                .setDefaults(Notification.DEFAULT_SOUND)
+                // .setVibrate(new long[0])
+                // .setDefaults(Notification.DEFAULT_SOUND)
                 .setCustomBigContentView(notificationLayout);
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
