@@ -55,7 +55,7 @@ public class BatteryObserverService extends Service {
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String time = dateFormat.format(Calendar.getInstance().getTime());
 
-            MyExceptionHandler.storeNote("\nBattery Observer: " + level + "% | Time: " + time + "\n");
+            MyExceptionHandler.storeNote("\nBattery Observer: " + level + "% | Time: " + time);
 
             unregisterReceiver(this);
         }

@@ -90,7 +90,7 @@ public class MyExceptionHandler {
 
         try {
 
-            note += "\n ------------------------- END ------------------------- \n";
+            // note += "\n ------------------------- END ------------------------- \n";
             File file = new File("/sdcard/my_logs/notes", "note");
 
             if (!file.exists()) {
